@@ -15,7 +15,7 @@ import shopmallsaga.event.*;
 
 @Service
 @ProcessingGroup("shopmall")
-public class JPAShopmallQueryHandler {
+public class ShopmallCQRSHandler {
 
     @Autowired
     private ShopmallRepository shopmallRepository;
@@ -23,11 +23,6 @@ public class JPAShopmallQueryHandler {
     @QueryHandler
     public List<Shopmall> handle(ShopmallQuery query) {
         return shopmallRepository.findAll();
-    }
-
-    @QueryHandler
-    public Optional<Shopmall> handle(ShopmallSingleQuery query) {
-        return shopmallRepository.findById(query.getId());
     }
 
     @EventHandler
